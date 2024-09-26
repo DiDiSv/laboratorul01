@@ -13,4 +13,4 @@ main.o:
 	g++ -c main.cpp -o main.o
 
 clean:
-	del *.o *.exe
+	rm -f *.o *.exe
