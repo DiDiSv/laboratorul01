@@ -46,16 +46,18 @@ Asigurați-vă că aveți următoarele instalate pe sistemul dumneavoastră:
 1. **Deschideți terminalul** (Command Prompt sau MSYS2).
 
 2. **Navigați la directorul proiectului**:
-   ```bash
+```bash
    cd C:\Users\DiDi\laboratorul01
+```
 3. **Construiește proiectul. Rulează comanda make pentru a compila fișierele sursă. Aceasta va genera fișierul executabil TicTacToe:**:
 ```bash
-   make 
-
+   make
+```
 4. **Curăță fișierele generate. Dacă dorești să ștergi fișierele obiect generate în timpul construcției, poți folosi comanda**:
-   ```bash
+```bash
    make clean
-
+```
 5.**Execută programul. După ce construcția a fost realizată cu succes, poți rula programul executabil**:
 ```bash
 ./TicTacToe
+```
