@@ -1,0 +1,20 @@
+# Ignoră fișierele obiect generate
+*.o
+
+# Ignoră fișierele executabile
+TicTacToe
+
+# Ignoră fișierele generate de sistemele de operare
+.DS_Store
+Thumbs.db
+
+# Ignoră fișierele temporare și de swap ale editorului
+*.tmp
+*.swp
+*.swo
+
+# Ignoră fișierele de log
+*.log
+
+# Ignoră fișierele Makefile care pot fi generate automat
+Makefile~
