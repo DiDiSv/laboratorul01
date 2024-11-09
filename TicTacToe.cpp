@@ -1,4 +1,5 @@
 #include "TicTacToe.hpp"
+#include <algorithm> // Adăugăm pentru algoritmi STL
 
 TicTacToe::TicTacToe() : board(3, std::vector<char>(3, ' ')), currentPlayer('X') {}
 
@@ -61,32 +62,30 @@ bool TicTacToe::placeMarker(int row, int col) {
 }
 
 bool TicTacToe::checkWin() const {
-
+    // Algoritm STL - Verifică dacă există o linie sau coloană completă
+    auto isCompleteLine = [this](int i) {
+        return std::all_of(board[i].begin(), board[i].end(), [this](char c) { return c == currentPlayer; });
+    };
+    
     for (int i = 0; i < 3; ++i) {
-        if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer)
-            return true;
+        if (isCompleteLine(i)) return true;
     }
+    
     for (int i = 0; i < 3; ++i) {
-        if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer)
-            return true;
+        if (std::all_of(board.begin(), board.end(), [i, this](const std::vector<char>& row) { return row[i] == currentPlayer; })) return true;
     }
-    if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer)
-        return true;
-    if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer)
-        return true;
-
+    
+    if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) return true;
+    if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) return true;
+    
     return false;
 }
 
 bool TicTacToe::checkDraw() const {
-    for (const auto& row : board) {
-        for (char cell : row) {
-            if (cell == ' ') {
-                return false;  
-            }
-        }
-    }
-    return true;
+    // Algoritm STL - Verifică dacă tabla este plină
+    return std::none_of(board.begin(), board.end(), [](const std::vector<char>& row) {
+        return std::any_of(row.begin(), row.end(), [](char cell) { return cell == ' '; });
+    });
 }
 
 void TicTacToe::switchPlayer() {
@@ -95,4 +94,21 @@ void TicTacToe::switchPlayer() {
 
 char TicTacToe::getCurrentPlayer() const {
     return currentPlayer;
+}
+
+void TicTacToe::applyAlgorithmicActions() {
+    // Exemple de algoritmi STL aplicați asupra tablei de joc
+    std::cout << "Verificare câștigător pe linii și coloane:\n";
+    if (checkWin()) {
+        std::cout << "Player " << currentPlayer << " wins!" << std::endl;
+    } else if (checkDraw()) {
+        std::cout << "It's a draw!" << std::endl;
+    }
+
+    // Utilizăm std::for_each pentru a aplica o acțiune pe fiecare celulă din tabelă
+    std::cout << "Tabla curentă: \n";
+    std::for_each(board.begin(), board.end(), [](const std::vector<char>& row) {
+        std::for_each(row.begin(), row.end(), [](char cell) { std::cout << cell << " "; });
+        std::cout << "\n";
+    });
 }

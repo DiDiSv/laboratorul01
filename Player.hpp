@@ -22,4 +22,4 @@ public:
     virtual void makeMove() const = 0; 
 };
 
-#endif 
+#endif
