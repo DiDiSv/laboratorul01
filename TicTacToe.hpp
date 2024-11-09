@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include <algorithm>  // Adăugăm pentru algoritmi STL
+#include <algorithm> 
 
 class TicTacToe {
 private:
@@ -32,7 +32,7 @@ public:
     void switchPlayer();
     char getCurrentPlayer() const;
 
-    void applyAlgorithmicActions();  // Funcție pentru demonstrat algoritmi STL
+    void applyAlgorithmicActions();  
 };
 
 #endif

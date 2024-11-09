@@ -1,5 +1,5 @@
 #include "TicTacToe.hpp"
-#include <algorithm> // Adăugăm pentru algoritmi STL
+#include <algorithm> 
 
 TicTacToe::TicTacToe() : board(3, std::vector<char>(3, ' ')), currentPlayer('X') {}
 
@@ -62,7 +62,6 @@ bool TicTacToe::placeMarker(int row, int col) {
 }
 
 bool TicTacToe::checkWin() const {
-    // Algoritm STL - Verifică dacă există o linie sau coloană completă
     auto isCompleteLine = [this](int i) {
         return std::all_of(board[i].begin(), board[i].end(), [this](char c) { return c == currentPlayer; });
     };
@@ -82,7 +81,6 @@ bool TicTacToe::checkWin() const {
 }
 
 bool TicTacToe::checkDraw() const {
-    // Algoritm STL - Verifică dacă tabla este plină
     return std::none_of(board.begin(), board.end(), [](const std::vector<char>& row) {
         return std::any_of(row.begin(), row.end(), [](char cell) { return cell == ' '; });
     });
@@ -97,7 +95,6 @@ char TicTacToe::getCurrentPlayer() const {
 }
 
 void TicTacToe::applyAlgorithmicActions() {
-    // Exemple de algoritmi STL aplicați asupra tablei de joc
     std::cout << "Verificare câștigător pe linii și coloane:\n";
     if (checkWin()) {
         std::cout << "Player " << currentPlayer << " wins!" << std::endl;
@@ -105,7 +102,6 @@ void TicTacToe::applyAlgorithmicActions() {
         std::cout << "It's a draw!" << std::endl;
     }
 
-    // Utilizăm std::for_each pentru a aplica o acțiune pe fiecare celulă din tabelă
     std::cout << "Tabla curentă: \n";
     std::for_each(board.begin(), board.end(), [](const std::vector<char>& row) {
         std::for_each(row.begin(), row.end(), [](char cell) { std::cout << cell << " "; });
