@@ -1,16 +1,27 @@
-all: tictactoe.exe
+SFML_DIR = ./libs/SFML
 
-tictactoe.exe: Player.o TicTacToe.o main.o
-	g++ -o tictactoe.exe Player.o TicTacToe.o main.o
+LIBS_DIR = ./libs
 
-Player.o:
-	g++ -c Player.cpp -o Player.o
+SRC_DIR = ./src
 
-TicTacToe.o:
-	g++ -c TicTacToe.cpp -o TicTacToe.o
+INCLUDE_DIR = ./include
 
-main.o:
-	g++ -c main.cpp -o main.o
+SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Player.cpp $(SRC_DIR)/TicTacToe.cpp
+
+OBJ = $(SRC:.cpp=.o)
+
+EXEC = main
+
+CXX = g++
+CXXFLAGS = -std=c++17 -I$(INCLUDE_DIR) -I$(SFML_DIR)/include
+
+LDFLAGS = -L$(LIBS_DIR) -L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system -lplayer -ltictactoe
+
+$(EXEC): $(OBJ)
+	$(CXX) $(OBJ) -o $(EXEC) $(LDFLAGS)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o *.exe
+	rm -f $(OBJ) $(EXEC)
