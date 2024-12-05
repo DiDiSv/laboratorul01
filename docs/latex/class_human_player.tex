@@ -1,0 +1,85 @@
+\doxysection{Human\+Player Class Reference}
+\hypertarget{class_human_player}{}\label{class_human_player}\index{HumanPlayer@{HumanPlayer}}
+
+
+Reprezintă un jucător uman în jocul \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe}.  
+
+
+
+
+{\ttfamily \#include $<$Human\+Player.\+hpp$>$}
+
+Inheritance diagram for Human\+Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_human_player}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_human_player_a8bc11aceb7a3dc49d94255fedbcc185d}{Human\+Player}} (const std\+::string \&\mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}})
+\begin{DoxyCompactList}\small\item\em Constructor pentru clasa \doxylink{class_human_player}{Human\+Player}, iniţializează un jucător cu un nume specificat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_human_player_ae44f469f5cf4b33fcb90f009f1bfc17a}{make\+Move}} () const override
+\begin{DoxyCompactList}\small\item\em Obține mișcarea de la jucătorul uman. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_player}{Player}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_a45fa04a2a4ff9235e6c100b7c6ab232a}{Player}} (const std\+::string \&\mbox{\hyperlink{class_player_af9c920fabaafdeb7961a645315b521ff}{name}})
+\begin{DoxyCompactList}\small\item\em Constructor pentru clasa \doxylink{class_player}{Player}, iniţializează un jucător cu un nume specificat. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Player} ()
+\begin{DoxyCompactList}\small\item\em Destructor virtual pentru clasa \doxylink{class_player}{Player}. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_player_a548c3c4307feda9d702f8c4d0d8daa7c}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Returnează numele jucătorului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_player}{Player}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries name}
+\begin{DoxyCompactList}\small\item\em Numele jucătorului. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reprezintă un jucător uman în jocul \doxylink{class_tic_tac_toe}{Tic\+Tac\+Toe}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_human_player_a8bc11aceb7a3dc49d94255fedbcc185d}\index{HumanPlayer@{HumanPlayer}!HumanPlayer@{HumanPlayer}}
+\index{HumanPlayer@{HumanPlayer}!HumanPlayer@{HumanPlayer}}
+\doxysubsubsection{\texorpdfstring{HumanPlayer()}{HumanPlayer()}}
+{\footnotesize\ttfamily \label{class_human_player_a8bc11aceb7a3dc49d94255fedbcc185d} 
+Human\+Player\+::\+Human\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Constructor pentru clasa \doxylink{class_human_player}{Human\+Player}, iniţializează un jucător cu un nume specificat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Numele jucătorului. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_human_player_ae44f469f5cf4b33fcb90f009f1bfc17a}\index{HumanPlayer@{HumanPlayer}!makeMove@{makeMove}}
+\index{makeMove@{makeMove}!HumanPlayer@{HumanPlayer}}
+\doxysubsubsection{\texorpdfstring{makeMove()}{makeMove()}}
+{\footnotesize\ttfamily \label{class_human_player_ae44f469f5cf4b33fcb90f009f1bfc17a} 
+int Human\+Player\+::make\+Move (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obține mișcarea de la jucătorul uman. 
+
+\begin{DoxyReturn}{Returns}
+Mișcarea aleasă de jucător sub formă de număr întreg. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_player_a71afd0930862d75d40851e66310d7ef0}{Player}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_human_player_8hpp}{Human\+Player.\+hpp}}\end{DoxyCompactItemize}

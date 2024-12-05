@@ -31,6 +31,23 @@ Clasă care reprezintă un jucător.
 
 ---
 
+## Specificarea Dependențelor Proiectului
+
+**Mediul de dezvoltare:**
+- **Compilator C++**: [g++] (inclus în MinGW sau MSYS2).
+- **Sistem de operare**: Windows (compatibil și cu alte sisteme de operare cu adaptările necesare).
+
+---
+
+## Biblioteci utilizate:
+### SFML (Simple and Fast Multimedia Library):
+- Folosită pentru gestionarea ferestrelor grafice, desenarea elementelor grafice și interacțiunile utilizatorului.
+- **Configurare SFML**:
+  1. Descărcați versiunea pentru Windows de la: https://www.sfml-dev.org/download.php.
+  2. Plasați fișierele descărcate în directorul proiectului, sub: `libs/SFML`.
+
+---
+
 ## Modul de Construire
 
 Acest proiect poate fi construit folosind sistemul de compilare `Make`. Urmați pașii de mai jos pentru a construi și rula jocul pe sistemul dumneavoastră.
@@ -44,11 +61,11 @@ Asigurați-vă că aveți următoarele instalate pe sistemul dumneavoastră:
 ### Construirea Proiectului
 
 1. **Deschideți terminalul** (Command Prompt sau MSYS2).
-
 2. **Navigați la directorul proiectului**:
 ```bash
    cd C:\Users\DiDi\laboratorul01
 ```
+
 3. **Construiește proiectul. Rulează comanda make pentru a compila fișierele sursă. Aceasta va genera fișierul executabil TicTacToe:**:
 ```bash
    make

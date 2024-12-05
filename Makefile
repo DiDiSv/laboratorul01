@@ -1,27 +1,30 @@
-SFML_DIR = ./libs/SFML
+CXX = g++
+CXXFLAGS = -I./include -I./libs/SFML/include -I./libs/googletest/googletest/include  # Include Google Test
 
-LIBS_DIR = ./libs
+LDFLAGS = -L./libs/SFML/lib -L./libs/googletest/googletest/lib -lgtest -lgtest_main -pthread
 
-SRC_DIR = ./src
-
-INCLUDE_DIR = ./include
-
-SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Player.cpp $(SRC_DIR)/TicTacToe.cpp
-
+SRC = src/main.cpp src/TicTacToe.cpp src/Player.cpp
 OBJ = $(SRC:.cpp=.o)
 
-EXEC = main
+# Teste
+TEST_SRC = tests/TicTacToeTest.cpp tests/PlayerTest.cpp
+TEST_OBJ = $(TEST_SRC:.cpp=.o)
+TEST_EXEC = test_game
 
-CXX = g++
-CXXFLAGS = -std=c++17 -I$(INCLUDE_DIR) -I$(SFML_DIR)/include
+OUT = TicTacToe
 
-LDFLAGS = -L$(LIBS_DIR) -L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system -lplayer -ltictactoe
-
-$(EXEC): $(OBJ)
-	$(CXX) $(OBJ) -o $(EXEC) $(LDFLAGS)
+$(OUT): $(OBJ)
+	$(CXX) $(OBJ) -o $(OUT) $(LDFLAGS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+tests/%.o: tests/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+test: $(OBJ) $(TEST_OBJ)
+	$(CXX) $(CXXFLAGS) -o $(TEST_EXEC) $(OBJ) $(TEST_OBJ) $(LDFLAGS)
+	./$(TEST_EXEC)
+
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f $(OBJ) $(TEST_OBJ) $(OUT) $(TEST_EXEC)
